@@ -80,14 +80,13 @@ const SignUpForm = () => {
       <small>Crie sua conta:</small>
 
       <UploadImageContainer>
-        {profileImage ? (
+        {profileImage && (
           <ImageContainer onClick={handleClearImage} title="Remover">
             <ProfilePhoto src={profileImage} />
             <TrashIcon />
           </ImageContainer>
-        ) : (
-          <InputFile type="file" onChange={handleImageUpload} />
         )}
+        <InputFile type="file" onChange={handleImageUpload} />
       </UploadImageContainer>
       <Input
         placeholder="Usuário"

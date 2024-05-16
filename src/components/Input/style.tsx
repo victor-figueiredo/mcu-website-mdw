@@ -70,8 +70,9 @@ export const LabelStyled = styled.label`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 40px;
-  height: 40px;
+  font-size: 26px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background-color: ${(props) => props.theme.colors.danger.dark};
   cursor: pointer;
