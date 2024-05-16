@@ -17,7 +17,7 @@ const Slider: React.FC<SliderProps> = (props) => {
   return (
     <SwiperStyled
       slidesPerView={isMobile ? 1 : isTabletOrMobile ? 2 : 3}
-      navigation={true}
+      navigation
       modules={[Navigation]}
       className="mySwiper"
       onSlideChange={props.onSlideChange}

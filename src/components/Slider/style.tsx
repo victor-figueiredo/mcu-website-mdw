@@ -38,31 +38,31 @@ export const SwiperStyled = styled(Swiper)<{ isLoadingMoreData: boolean }>`
   }
 
   .swiper-button-next {
-    &::after {
-      content: "";
-      ${(props) =>
-        props.isLoadingMoreData
-          ? `
+    ${(props) =>
+      props.isLoadingMoreData
+        ? `
           background-image: url(${Loader}) !important;
           &.swiper-button-disabled {
             opacity: 1;
           }
           `
-          : `background-image: url(${NextButton}) !important;
+        : `background-image: url(${NextButton}) !important;
           `}
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    &::after {
+      display: none;
     }
   }
 
   .swiper-button-prev {
+    background-image: url(${PrevButton}) !important;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
     &::after {
-      content: "";
-      background-image: url(${PrevButton}) !important;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      background-position: center;
+      display: none;
     }
   }
 `;
