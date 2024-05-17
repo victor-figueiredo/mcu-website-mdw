@@ -1,7 +1,5 @@
 # Universo Cinematográfico Marvel - Website
 
-## Desenvolvido com React + TypeScript + Vite
-
 Consiste em um site responsivo e performático para que fãs das obras da Marvel possam criar sua conta e visualizar informações dos Personagens, Filmes e HQ's.
 
 Este projeto React foi iniciado com Vite, desenvolvido com Typescript, estilizado com Styled-Components, autenticação de usuários com Local Storage, consumo de dados a partir das API's da Marvel e TMDB, tradução de algumas informações com a API do Google(Cloud Translation API) e documentação do projeto com Storybook.
@@ -43,25 +41,25 @@ cd mcu-website-mdw
 ### 2 - Baixar e instalar as dependências
 
 ```bash
-yarn
-# ou se você preferir o npm
 npm install
+# ou se você preferir o yarn
+yarn
 ```
 
 ### 3 - Iniciar o servidor
 
 ```bash
-yarn dev
-# ou se você preferir o npm
 npm run dev
+# ou se você preferir o npm
+yarn dev
 ```
 
 ## Acessar a documentação com Storybook
 
 ```bash
-yarn storybook
-# ou com npm
 npm run storybook
+# ou com npm
+yarn storybook
 # Abrirá a documentação em um link **localhost:6006**
 ```
 
