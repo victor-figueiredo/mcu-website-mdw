@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from "react";
 import * as Api from "../api/api";
 import { clearSearchInput } from "../utils";
 
-interface MyContextValue {
+export interface MyContextValue {
   isLoading: boolean;
   isLoadingMoreData: boolean;
   characters: any;
@@ -45,7 +45,7 @@ interface MyContextValue {
   handleChangeViewer: (value: string) => void;
 }
 
-const AppContext = createContext<MyContextValue | undefined>(undefined);
+export const AppContext = createContext<MyContextValue | undefined>(undefined);
 
 export const useAppContext = (): MyContextValue => {
   const context = useContext(AppContext);
