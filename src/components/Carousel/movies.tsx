@@ -17,6 +17,7 @@ import {
 } from "./style";
 import { Button, CleanFilterButton } from "../Button";
 import { CardDetailPositions, Movie, MovieDetails } from "../../types";
+import { verifyIndex } from "../../utils";
 
 type Details = {
   data: Movie | null;
@@ -45,10 +46,18 @@ const MoviesCarousel = () => {
     handleClearSearches,
   } = useAppContext();
 
-  const isTabletOrMobile = useMediaQuery({
-    query: "(min-width: 760px) and (max-width: 1140px)",
-  });
-  const isMobile = useMediaQuery({ query: "(max-width: 759px)" });
+  const mediaQueries = {
+    isDesktopxl: useMediaQuery({
+      query: "(min-width: 1800px)",
+    }),
+    isDesktop: useMediaQuery({
+      query: "(min-width: 1400px) and (max-width: 1799px)",
+    }),
+    isTabletOrMobile: useMediaQuery({
+      query: "(min-width: 760px) and (max-width: 1140px)",
+    }),
+    isMobile: useMediaQuery({ query: "(max-width: 759px)" }),
+  };
 
   useEffect(() => {
     fetchMovies();
@@ -62,14 +71,16 @@ const MoviesCarousel = () => {
   ) => {
     const indexInView = realIndex - currentIndex;
     const cardRect = (e.target as HTMLDivElement).getBoundingClientRect();
-    if (isMobile) {
+    if (mediaQueries.isMobile) {
       setPosition({ x: cardRect.left - 455, y: cardRect.top });
       setDetails({ data: movie, direction: "centered" });
       setShow(true);
       return;
     }
-    const third = isTabletOrMobile ? indexInView === 1 : indexInView === 2;
-    if (third) {
+
+    const lastCard = verifyIndex(indexInView, mediaQueries);
+
+    if (lastCard) {
       const space = cardRect.left - 395;
       setPosition({ x: space, y: cardRect.top });
       setDetails({ data: movie, direction: "right" });

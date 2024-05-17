@@ -11,6 +11,7 @@ import CardDetail from "../DetailCard";
 import { useMediaQuery } from "react-responsive";
 import { FiltersContainer, FormCleaner, InputForm } from "./style";
 import { CardDetailPositions, Comic, ComicDetails } from "../../types";
+import { verifyIndex } from "../../utils";
 
 type Details = {
   data: Comic | null;
@@ -35,10 +36,18 @@ const HqsCarousel = () => {
     handleClearSearches,
   } = useAppContext();
 
-  const isTabletOrMobile = useMediaQuery({
-    query: "(min-width: 760px) and (max-width: 1140px)",
-  });
-  const isMobile = useMediaQuery({ query: "(max-width: 759px)" });
+  const mediaQueries = {
+    isDesktopxl: useMediaQuery({
+      query: "(min-width: 1800px)",
+    }),
+    isDesktop: useMediaQuery({
+      query: "(min-width: 1400px) and (max-width: 1799px)",
+    }),
+    isTabletOrMobile: useMediaQuery({
+      query: "(min-width: 760px) and (max-width: 1140px)",
+    }),
+    isMobile: useMediaQuery({ query: "(max-width: 759px)" }),
+  };
 
   useEffect(() => {
     fetchComics({ offset: 0 });
@@ -52,14 +61,15 @@ const HqsCarousel = () => {
   ) => {
     const indexInView = realIndex - currentIndex;
     const cardRect = (e.target as HTMLDivElement).getBoundingClientRect();
-    if (isMobile) {
+    if (mediaQueries.isMobile) {
       setPosition({ x: cardRect.left - 395, y: cardRect.top });
       setDetails({ data: hq, direction: "centered" });
       setShow(true);
       return;
     }
-    const third = isTabletOrMobile ? indexInView === 1 : indexInView === 2;
-    if (third) {
+    const lastCard = verifyIndex(indexInView, mediaQueries);
+
+    if (lastCard) {
       const space = cardRect.left - 395;
       setPosition({ x: space, y: cardRect.top });
       setDetails({ data: hq, direction: "right" });

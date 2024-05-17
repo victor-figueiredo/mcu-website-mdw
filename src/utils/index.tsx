@@ -11,4 +11,26 @@ const clearSearchInput = (id: string) => {
   input.value = "";
 };
 
-export { createToken, clearSearchInput };
+interface MediaQueries {
+  isDesktopxl: boolean;
+  isDesktop: boolean;
+  isTabletOrMobile: boolean;
+  isMobile: boolean;
+}
+
+const verifyIndex = (index: number, conditions: MediaQueries) => {
+  if (conditions.isTabletOrMobile) return index === 1;
+  if (conditions.isDesktop) return index === 3;
+  if (conditions.isDesktopxl) return index === 4;
+  return index === 2;
+};
+
+const setSlidePerView = (conditions: MediaQueries) => {
+  if (conditions.isMobile) return 1;
+  if (conditions.isTabletOrMobile) return 2;
+  if (conditions.isDesktop) return 4;
+  if (conditions.isDesktopxl) return 5;
+  return 3;
+};
+
+export { createToken, clearSearchInput, verifyIndex, setSlidePerView };
