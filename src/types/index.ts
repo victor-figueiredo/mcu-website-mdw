@@ -222,6 +222,7 @@ export interface CheckboxProps {
   label: string;
   disabled?: boolean;
 }
+
 export type CardDetailProps = {
   type: string;
   position: CardDetailPositions;

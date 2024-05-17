@@ -20,7 +20,7 @@ type UserData = {
   keepLogin?: boolean;
 };
 
-type AuthContext = {
+export type AuthContextType = {
   authenticated: boolean;
   formType: string;
   loginAnimation: boolean;
@@ -52,9 +52,9 @@ const initialValue = {
   handleDisableLoginAnimation: () => {},
 };
 
-const AuthContext = createContext<AuthContext>(initialValue);
+const AuthContext = createContext<AuthContextType>(initialValue);
 
-const AuthProvider = ({ children }: Props) => {
+const AuthProvider = ({ children }: Props) => { 
   const [userProfile, setUserProfile] = useState<UserData>({
     username: "",
     password: "",

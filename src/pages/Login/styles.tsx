@@ -33,7 +33,8 @@ const showImageMobile = keyframes`
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.colors.primary.dark};
+  background-color: #000;
+  /* background-color: ${(props) => props.theme.colors.primary.dark}; */
   position: relative;
   z-index: 2;
 `;
