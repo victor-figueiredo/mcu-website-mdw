@@ -4,7 +4,7 @@
 
 Consiste em um site responsivo e performático para que fãs das obras da Marvel possam criar sua conta e visualizar informações dos Personagens, Filmes e HQ's.
 
-Este projeto React foi iniciado com Vite, desenvolvido com Typescript, estilizado com Styled-Components.
+Este projeto React foi iniciado com Vite, desenvolvido com Typescript, estilizado com Styled-Components, autenticação de usuários com Local Storage, consumo de dados a partir das API's da Marvel e TMDB, tradução de algumas informações com a API do Google(Cloud Translation API) e documentação do projeto com Storybook.
 
 O usuário pode criar sua conta utilizando um nome, senha e opcionalmente uma imagem de perfil. Todo este processo de Autenticação, login, recuperação de senha e criação de conta é feito com o uso do **Local Storage**, simulando uma API.
 As informações dos personagens e dos hq's estão integradas com a <b><a href="https://developer.marvel.com/">**api da Marvel**</a></b>, porém, como ela não fornece tradução das informações, elas estão sendo traduzidas com a api do Google <b><a href="https://cloud.google.com/translate/docs/reference/rest">Cloud Translation API</a></b>.
@@ -18,7 +18,7 @@ O site foi desenvolvido focado em detalhes para que o usuário possa ter uma boa
 
 ## Que tal conferirmos como ficou o resultado? Segue os passos para rodar o projeto front-end na sua máquina e conectar com as Api's.
 
-## No final deste passo a passo você verá como acessar a documentação do projeto com Storybook.
+### No final deste passo a passo você verá como acessar a documentação do projeto com Storybook.
 
 ## Passos para rodar este Front-end no seu computador
 
@@ -27,6 +27,11 @@ O site foi desenvolvido focado em detalhes para que o usuário possa ter uma boa
 - Node: >= 18
 - NPM: >= 8.0.0
 - Framework: React
+
+### Versões utilizadas
+
+- Node: 20.11.1
+- NPM: 10.7.0
 
 ### 1 - Clonando o repositório
 
@@ -39,19 +44,25 @@ cd mcu-website-mdw
 
 ```bash
 yarn
+# ou se você preferir o npm
+npm install
 ```
 
 ### 3 - Iniciar o servidor
 
 ```bash
 yarn dev
+# ou se você preferir o npm
+npm run dev
 ```
 
 ## Acessar a documentação com Storybook
 
 ```bash
 yarn storybook
+# ou com npm
+npm run storybook
 # Abrirá a documentação em um link **localhost:6006**
 ```
 
-#### 👋 Eu, Victor Figueiredo, sou grato a Mestres da Web pela oportunidade, conhecer um pouco desta empresa e poder participar deste processo é muito satisfatório.
+#### 👋 Eu, Victor Figueiredo, sou grato a **Mestres da Web** pela oportunidade, conhecer um pouco desta empresa e poder participar deste processo é muito satisfatório.
